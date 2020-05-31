@@ -21,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     EditText etans6, etans7, etans8, etans9, etans10;
 
     ArrayList<String> questions;
+    ArrayList<String> answers;
+
+    Button btnCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,10 +70,12 @@ public class MainActivity extends AppCompatActivity {
         tvqns10 = findViewById(R.id.textViewqns10);
         etans10 = findViewById(R.id.editTextans10);
 
-        // Array of strings...
+        btnCheck = findViewById(R.id.btncheck);
+
+        // Array of strings for questions...
         questions = new ArrayList<String>();
         String[] questionsarray = {"1.APLEP", "2.MBURLELA", "3.ODG", "4.ARICH", "5.OFOD", "6.COLHSO", "7.TROCYNU",
-                                "8.ATC", "9.OBEVA", "10.ESCOL"};
+                                "8.ATC", "9.TAE", "10.OHSES"};
 
         tvqns1.setText(questionsarray[0]);
         tvqns2.setText(questionsarray[1]);
@@ -83,5 +88,8 @@ public class MainActivity extends AppCompatActivity {
         tvqns9.setText(questionsarray[8]);
         tvqns10.setText(questionsarray[9]);
 
+        // Array of string for answers...
+        answers = new ArrayList<String>();
+        String[] answerarray = {"APPLE", "UMBRELLA", "DOG", "CHAIR", "FOOD", "SCHOOL", "COUNTRY", "CAT","EAT", "SHOES"};
     }
 }

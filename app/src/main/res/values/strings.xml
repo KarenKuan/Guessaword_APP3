@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Guess a word_APP3</string>
+
+    <string name="textViewqns1">1.APLEP</string>
+    <string name="textViewqns2">2.MBURLELA</string>
+    <string name="textViewqns3">3.ODG</string>
+    <string name="textViewqns4">4.ARICH</string>
+    <string name="textViewqns5">5.OFOD</string>
+    <string name="textViewqns6">6.COLHSO</string>
+    <string name="textViewqns7">7.TROCYNU</string>
+    <string name="textViewqns8">8.ATC</string>
+    <string name="textViewqns9">9.OBEVA</string>
+    <string name="textViewqns10">10.ESCOL</string>
+</resources>

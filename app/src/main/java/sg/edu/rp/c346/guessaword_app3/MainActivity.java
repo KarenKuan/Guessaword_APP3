@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         // Array of strings for questions...
         questions = new ArrayList<String>();
         String[] questionsarray = {"1.APLEP", "2.MBURLELA", "3.ODG", "4.ARICH", "5.OFOD", "6.COLHSO", "7.TROCYNU",
-                                "8.ATC", "9.TAE", "10.OHSES"};
+                "8.ATC", "9.TAE", "10.OHSES"};
 
         tvqns1.setText(questionsarray[0]);
         tvqns2.setText(questionsarray[1]);
@@ -90,6 +90,34 @@ public class MainActivity extends AppCompatActivity {
 
         // Array of string for answers...
         answers = new ArrayList<String>();
-        String[] answerarray = {"APPLE", "UMBRELLA", "DOG", "CHAIR", "FOOD", "SCHOOL", "COUNTRY", "CAT","EAT", "SHOES"};
+        final String[] answerarray = {"APPLE", "UMBRELLA", "DOG", "CHAIR", "FOOD", "SCHOOL", "COUNTRY", "CAT", "EAT", "SHOES"};
+
+        btnCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, SecondActivity.class);
+                String et1 = etans1.getText().toString();
+                String et2 = etans2.getText().toString();
+                String et3 = etans3.getText().toString();
+                String et4 = etans4.getText().toString();
+                String et5 = etans5.getText().toString();
+                String et6 = etans6.getText().toString();
+                String et7 = etans7.getText().toString();
+                String et8 = etans8.getText().toString();
+                String et9 = etans9.getText().toString();
+                String et10 = etans10.getText().toString();
+                i.putExtra("answer1", et1);
+                i.putExtra("answer2", et2);
+                i.putExtra("answer3", et3);
+                i.putExtra("answer4", et4);
+                i.putExtra("answer5", et5);
+                i.putExtra("answer6", et6);
+                i.putExtra("answer7", et7);
+                i.putExtra("answer8", et8);
+                i.putExtra("answer9", et9);
+                i.putExtra("answer10", et10);
+                startActivity(i);
+            }
+        });
     }
 }

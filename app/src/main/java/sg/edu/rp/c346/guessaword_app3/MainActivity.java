@@ -1,7 +1,9 @@
 package sg.edu.rp.c346.guessaword_app3;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     EditText etans6, etans7, etans8, etans9, etans10;
 
     ArrayList<String> questions;
-    ArrayList<String> answers;
 
     Button btnCheck;
 
@@ -74,8 +75,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Array of strings for questions...
         questions = new ArrayList<String>();
-        String[] questionsarray = {"1.APLEP", "2.MBURLELA", "3.ODG", "4.ARICH", "5.OFOD", "6.COLHSO", "7.TROCYNU",
-                "8.ATC", "9.TAE", "10.OHSES"};
+        String[] questionsarray = {"1.APLEP", "2.MBURLELA", "3.ODG", "4.ARICH", "5.OFOD", "6.COLHSO", "7.ETA",
+                "8.ATC", "9.ERA", "10.OHSES"};
 
         tvqns1.setText(questionsarray[0]);
         tvqns2.setText(questionsarray[1]);
@@ -88,14 +89,34 @@ public class MainActivity extends AppCompatActivity {
         tvqns9.setText(questionsarray[8]);
         tvqns10.setText(questionsarray[9]);
 
-        // Array of string for answers...
-        answers = new ArrayList<String>();
-        final String[] answerarray = {"APPLE", "UMBRELLA", "DOG", "CHAIR", "FOOD", "SCHOOL", "COUNTRY", "CAT", "EAT", "SHOES"};
+        /*
+        // All correct
+        etans1.setText("apple");
+        etans2.setText("umbrella");
+        etans3.setText("dog");
+        etans4.setText("chair");
+        etans5.setText("food");
+        etans6.setText("school");
+        etans7.setText("eat");
+        etans8.setText("cat");
+        etans9.setText("ear");
+        etans10.setText("shoes"); */
+
+        /*
+        etans1.setText("aplpe");//wrong
+        etans2.setText("umbrella");
+        etans3.setText("dgo");//wrong
+        etans4.setText("chair");
+        etans5.setText("food");
+        etans6.setText("school");
+        etans7.setText("eta");//wrong
+        etans8.setText("cta");//wrong
+        etans9.setText("ear");
+        etans10.setText("shoes"); */
 
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, SecondActivity.class);
                 String et1 = etans1.getText().toString();
                 String et2 = etans2.getText().toString();
                 String et3 = etans3.getText().toString();
@@ -106,17 +127,35 @@ public class MainActivity extends AppCompatActivity {
                 String et8 = etans8.getText().toString();
                 String et9 = etans9.getText().toString();
                 String et10 = etans10.getText().toString();
-                i.putExtra("answer1", et1);
-                i.putExtra("answer2", et2);
-                i.putExtra("answer3", et3);
-                i.putExtra("answer4", et4);
-                i.putExtra("answer5", et5);
-                i.putExtra("answer6", et6);
-                i.putExtra("answer7", et7);
-                i.putExtra("answer8", et8);
-                i.putExtra("answer9", et9);
-                i.putExtra("answer10", et10);
-                startActivity(i);
+
+                if (et1.isEmpty() || et2.isEmpty() || et3.isEmpty() || et4.isEmpty() || et5.isEmpty()
+                        || et6.isEmpty() || et7.isEmpty() || et8.isEmpty() || et9.isEmpty() || et10.isEmpty()) {
+                    Intent i = new Intent(MainActivity.this, MainActivity.class);
+                    startActivity(i);
+
+                    // Create the Dialog Builder
+                    AlertDialog.Builder myBuilder = new AlertDialog.Builder(MainActivity.this);
+
+                    // Set the dialog details
+                    myBuilder.setTitle("Error Message");
+                    myBuilder.setMessage("Please fill in all the answer");
+                    myBuilder.setCancelable(true);
+                    myBuilder.setPositiveButton("OK", null);
+                    myBuilder.setNeutralButton("CANCEL", null);
+                    myBuilder.show();
+                } else { Intent i = new Intent(MainActivity.this, SecondActivity.class);
+                    i.putExtra("answer1", et1);
+                    i.putExtra("answer2", et2);
+                    i.putExtra("answer3", et3);
+                    i.putExtra("answer4", et4);
+                    i.putExtra("answer5", et5);
+                    i.putExtra("answer6", et6);
+                    i.putExtra("answer7", et7);
+                    i.putExtra("answer8", et8);
+                    i.putExtra("answer9", et9);
+                    i.putExtra("answer10", et10);
+                    startActivity(i);
+                }
             }
         });
     }
